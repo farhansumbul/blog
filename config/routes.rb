@@ -1,13 +1,9 @@
 Blog::Application.routes.draw do
+  root :to => "home#index"
   devise_for :users
-  get "log_out" => "sessions#destroy", :as=> "log_out"
-  get "log_in" => "sessions#new", :as=> "log_in"
-  get "sign_up" => "users#new", :as => "sign_up" 
-  get "home/index"
 
   resources :posts
-  resources :sessions
-  resources :users
+  # resources :users
 
 
   # The priority is based upon order of creation:
@@ -59,7 +55,6 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 
